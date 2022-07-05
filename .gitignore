@@ -133,3 +133,5 @@ dmypy.json
 
 *.png
 *.pickle
+*.jpeg
+*.dat
