@@ -25,10 +25,11 @@ class Recognise(Resource):
                 "name": name,
                 "score": round(recognise_result[name] / len(images), 2)
             }
+            print(result)
 
-            print(recognise_result)
-
-            return Response(response=json.dumps(result), status=200, mimetype='application/json')
+            if result['score'] > 81:
+                return Response(response=json.dumps(result), status=200, mimetype='application/json')
+            return Response({}, status=200, mimetype='application/json')
 
         except Exception as e:
             return Response(status=500)
